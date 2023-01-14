@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block core_css %}
+    <!-- fontawesome CDN link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!--Materialize CSS CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -14,8 +16,41 @@
     <title>Task Manager</title>
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    <header>
+        <!--top navbar -->
+        <nav class="light-blue darken-1">
+            <div class="nav-wrapper">
+              <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#">New Task</a></li>
+                <li><a href="#">Categories</a></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- mobile top navbar -->
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="#">New Task</a></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+    </header>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer blue darken-3">
+        <div class="footer-copyright">
+          <div class="container">
+          For educational purposes
+          <a class="grey-text text-lighten-4 right"
+          href="https://codeinstitute.net/"
+          target="_blank">© 2023 Code Institute Walkthrough Project</a>
+          </div>
+        </div>
+      </footer>
 
     {% block postload_js %}
     <!--Materialize Js CDN-->
