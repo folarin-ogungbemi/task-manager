@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Sidenav initialization
-    var sidenav = document.querySelectorAll('.sidenav');
+    let sidenav = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sidenav);
+
+    // datepicker initialization
+    let datepicker = document.querySelectorAll('.datepicker');
+    M.Datepicker.init(datepicker, {
+      format: 'mmm dd, yyyy',
+      i18n: { done: 'select'}
+    });
+
+    // category initialization
+    let category = document.querySelectorAll('select');
+    M.FormSelect.init(category);
   });
