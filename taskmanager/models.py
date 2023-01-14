@@ -7,7 +7,7 @@ class Category(db.Model):
     category_name = db.Column(db.String(25), unique=True, nullable=False)
     tasks = db.relationship(
         "Task", backref="category",
-        cascade="all, delete", lazy="True")
+        cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # to represent itself in the form of a string
